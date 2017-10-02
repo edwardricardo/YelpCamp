@@ -1,0 +1,17 @@
+{
+  "name": "v2",
+  "version": "2.0.0",
+  "description": "Yelp Camp App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edward Velasquez",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.12"
+  }
+}
