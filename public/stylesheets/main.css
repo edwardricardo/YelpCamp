@@ -5,3 +5,30 @@
 .thumbnail{
     padding: 0;
 }
+
+.delete-form{
+    display: inline;
+}
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
+.profile{
+    border: 1px solid lightslategray;
+    border-radius: 25px;
+    padding: 25px;
+    margin-top: 25px;
+}
+.profile-content{
+    border-left: 1px solid lightslategray;
+    padding-left: 25px;
+}
+
+.profile-campgrounds{
+    margin: 25px 0;
+}
+.forgot-form{
+    float: none;
+    margin: 0 auto;
+}

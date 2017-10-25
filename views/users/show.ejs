@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+
+<div class="row profile">
+    <div class="col-md-4">
+        <img src="<%= user.avatar %>" alt="User profile avatar">
+    </div>
+    <div class="col-md-8 profile-content text-justify">
+        <h2>First name:</h2>
+        <p><%= user.firstName%></p>
+        <h2>Last name:</h2>
+        <p><%= user.lastName%></p>
+        <h2>Bio:</h2>
+        <p>Bacon ipsum dolor amet jowl pork hamburger landjaeger pork belly ham hock drumstick prosciutto frankfurter biltong. Pig shoulder
+        pork loin rump picanha biltong. T-bone alcatra flank ham prosciutto. Frankfurter porchetta pancetta ground round, ham meatball
+        jowl doner rump. Capicola jerky pastrami, porchetta turkey bresaola alcatra kielbasa. Flank corned beef meatloaf brisket
+        picanha, alcatra short loin swine shank leberkas boudin hamburger ribeye burgdoggen. Rump filet mignon pork loin ball tip,
+        andouille shoulder short loin pancetta jowl shank tongue. Pork loin strip steak cow, chuck kielbasa pancetta pork jowl filet
+        mignon landjaeger shankle biltong bresaola. Landjaeger swine filet mignon bresaola porchetta. Rump strip steak fatback shoulder.
+        Flank tongue tail sausage. Boudin ground round filet mignon andouille pastrami tongue cow burgdoggen tail shankle tri-tip
+        bacon pig. Kielbasa prosciutto ham shank ribeye frankfurter ground round chuck pork belly cupim pig alcatra picanha swine.
+        Prosciutto drumstick corned beef frankfurter tongue turducken. Picanha boudin kielbasa pork chop corned beef. Frankfurter
+        swine tail strip steak landjaeger, meatloaf shoulder. Leberkas pork belly filet mignon sirloin. Turkey prosciutto beef ribs
+        pastrami ham ham hock sausage pork doner ground round brisket boudin fatback shoulder. Alcatra kevin cupim burgdoggen shoulder
+        meatball. Kevin ground round hamburger biltong.</p>
+        <h2>Email:</h2>
+        <p><%= user.email%></p>
+    </div>
+</div>
+<h3><em><%= user.username %>'s Campgrounds</em></h3>
+<div class="row profile-campgrounds" style="display:flex; flex-wrap:wrap;">
+    <% campgrounds.forEach(function(campground){ %>
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <img src="<%= campground.image %>">
+                <div class="caption text-center">
+                    <h4>
+                        <%= campground.name %>
+                    </h4>
+                </div>
+                <p class="text-center">
+                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+</div>
+
+<% include ../partials/footer %>
