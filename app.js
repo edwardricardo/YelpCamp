@@ -1,29 +1,37 @@
 require('dotenv').config();
 
-const   express             = require('express'),
-        app                 = express(),
-        path                = require('path'),
-        bodyParser          = require('body-parser'),
-        mongoose            = require('mongoose'),
-        flash               = require('connect-flash'),
-        passport            = require('passport'),
-        LocalStrategy       = require('passport-local'),
-        Campground          = require('./models/campground'),
-        Comment             = require("./models/comment"),
-        User                = require('./models/user'),
-        seedDB              = require("./seeds"),
-        expressSession      = require('express-session'),
-        indexRoutes         = require('./routes/index'),
-        campgroundsRoutes   = require('./routes/campgrounds'),
-        commentsRoutes      = require('./routes/comments'),
-        methodOverride      = require('method-override')
+const express = require('express'),
+    app = express(),
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    mongoose = require('mongoose'),
+    flash = require('connect-flash'),
+    passport = require('passport'),
+    LocalStrategy = require('passport-local'),
+    Campground = require('./models/campground'),
+    Comment = require("./models/comment"),
+    User = require('./models/user'),
+    seedDB = require("./seeds"),
+    expressSession = require('express-session'),
+    indexRoutes = require('./routes/index'),
+    campgroundsRoutes = require('./routes/campgrounds'),
+    commentsRoutes = require('./routes/comments'),
+    methodOverride = require('method-override')
 
 // avoid mongoose console msg 
 mongoose.Promise = global.Promise;
 //body-parser declaration
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 //database connection
-mongoose.connect('mongodb://localhost/yelp_camp_app_v13', { useMongoClient: true });
+// mongoose.connect('mongodb://localhost/yelp_camp_app_v13', {
+//     useMongoClient: true
+// }); 
+mongoose.connect('mongodb://yelpcamp_user:yelpcamp_user@ds123410.mlab.com:23410/yelpcamp_db', {
+    useMongoClient: true
+});
+
 //views engine setup
 app.set('view engine', 'ejs');
 //static assets
@@ -57,8 +65,7 @@ app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundsRoutes);
 app.use('/campgrounds/:id/comments', commentsRoutes);
 
-
 // Run server
-app.listen(3000, 'localhost', function(){
+app.listen(3000, 'localhost', function () {
     console.log('YelpCamp Server started');
 })
